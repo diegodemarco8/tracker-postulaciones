@@ -22,7 +22,7 @@ Aplicación web para llevar el registro de postulaciones laborales: en qué pues
 Requiere [Node.js](https://nodejs.org/) instalado.
 
 ```bash
-git clone https://github.com/diego-demarco/tracker-postulaciones.git
+git clone https://github.com/diegodemarco8/tracker-postulaciones.git
 cd tracker-postulaciones
 npm install
 npm run dev
