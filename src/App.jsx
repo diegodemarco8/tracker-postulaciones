@@ -46,9 +46,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Tracker de Postulaciones</h1>
+      <h1>Ingresar postulación</h1>
 
-      <form onSubmit={agregarPostulacion}>
+        <form className="formulario" onSubmit={agregarPostulacion}>
         <input
           type="date"
           value={fecha}
@@ -85,24 +85,37 @@ function App() {
         <button type="submit">Agregar</button>
       </form><br/>
 
-      <p>Cantidad de postulaciones: {postulaciones.length}</p>
+      <p className="contador">Cantidad de postulaciones: {postulaciones.length}</p>
 
-      <ul>
+      <ul className="lista">
         {postulaciones.map((p) => (
-          <li key={p.id}>
-            {p.fecha} - {p.puesto} en {p.empresa} ({p.horas} hs) -{' '}
-              <select
-                value={p.estado}
-                onChange={(e) => cambiarEstado(p.id, e.target.value)}
-              >
-                 <option>Enviada</option>
-                 <option>En proceso</option>
-                 <option>Entrevista</option>
-                 <option>Rechazada</option>
-                 <option>Aceptada</option>
-              </select>{' '}
-              <button onClick={() => eliminarPostulacion(p.id)}>Eliminar</button>
-          </li>
+           <li
+            key={p.id}
+            className={`tarjeta estado-${p.estado.toLowerCase().replace(' ', '-')}`}
+           >
+              <div>
+                 <strong>{p.puesto}</strong> en {p.empresa}
+                 <span className="detalle">
+                    {p.fecha}
+                    {p.horas && ` · ${p.horas} hs`}
+                 </span>
+              </div>
+              <div className="tarjeta-acciones">
+                 <select
+                    value={p.estado}
+                    onChange={(e) => cambiarEstado(p.id, e.target.value)}
+                 >
+                    <option>Enviada</option>
+                    <option>En proceso</option>
+                    <option>Entrevista</option>
+                    <option>Rechazada</option>
+                    <option>Aceptada</option>
+                 </select>
+                 <button className="eliminar" onClick={() => eliminarPostulacion(p.id)}>
+                    Eliminar
+                 </button>
+              </div>
+           </li>
         ))}
       </ul>
     </div>
