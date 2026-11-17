@@ -10,6 +10,10 @@ Aplicación web para llevar el registro de postulaciones laborales: en qué pues
 - Eliminar postulaciones.
 - Los datos se guardan en el navegador (`localStorage`), así que no se pierden al recargar la página.
 
+## Demo
+
+https://tracker-postulaciones.vercel.app/
+
 ## Tecnologías
 
 - [React](https://react.dev/) (hooks: `useState`, `useEffect`)
